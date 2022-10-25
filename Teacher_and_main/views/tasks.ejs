@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+       <nav>
+        <div class="container">
+            <div class="text-center">
+                <a href="/"class="nav-brand text-dark">Tutor Management Dashboard</a>
+                <a href="/logout"class="nav-brand" style="color: white; position:relative; right: -500px; font-size: 20px"> | Logout</a>
+            </div>
+        </div>
+       </nav> 
+    </header>
+    <!--/Header-->
+
+    <!--Main Site-->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+
+                <a href="/teacher" class="border-shadow">
+                    <span class="text-gradient">Students<i class="fa-solid fa-user"></i></span>
+                </a>
+                <a href="/teacher/addtask" class="border-shadow">
+                    <span class="text-gradient">New Task<i class="fa-solid fa-user"></i></span>
+                </a>
+
+            </div>
+
+            <div class="edit_form dis">
+                <form  method="POST" id="update_user" action="/edittask/pros">
+                    <div class="new_user">
+                        <div class="form-group">
+                            <input id="theID" type="text" name="id" style="display: none;">
+                            <label for="name" class="text-light">Task Name</label>
+                            <input type="text" name="taskName" value="" placeholder="New task name" >
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="text-light">description</label>
+                            <input type="text" name="description" value="" placeholder="Task description" >
+                        </div>
+                        <div class="form-group">
+                            <label for="Deadline" class="text-light">Deadline</label>
+                            <input type="date" id="deadline" name="deadline" required>
+                            
+                        </div>
+    
+                        <div class="form-group">
+                            <button type="submit" class="btn text-dark update">Save</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div>
+            <!--form handling-->
+            <form action="/teacher/adduser" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>description</th>
+                            <th>Deadline</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% data.forEach(result=>{%>
+                            <tr>
+                                <td><%= result.name%></td>
+                                <td><%= result.description%></td>
+                                <td><%= result.deadline.toLocaleString()%></td>
+                                <td>
+    
+                                    <a href="#" class="btn border-shadow update">
+                                        <span class = "text-gradient"><i id= <%= result._id%> class="fas fa-pencil-alt"></i></span>
+                                    </a>
+                                    <a class="btn border-shadow delete">
+                                        <span class = "text-gradient"><i id= <%= result._id%> class="fas fa-times">
+
+                                        </i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        <%} ); %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+    <!--/Main Site-->
+
+    <script>
+        const handleDel = (e)=>{
+
+            console.log(e.target.id);
+
+            const request = new XMLHttpRequest();
+            request.open("DELETE", "http://localhost:8080/teacher/tasks/"+e.target.id);
+            request.send();
+            window.location.reload();
+        }
+        const handleedit = (e)=>{
+            document.querySelector(".edit_form").classList.toggle('dis')
+            document.querySelector("#theID").value = e.target.id;
+        }
+
+        document.querySelectorAll('.fa-times').forEach(el => {el.addEventListener('click', handleDel)});
+        document.querySelectorAll('.fa-pencil-alt').forEach(el => {el.addEventListener('click', handleedit)});
+        
+    </script>
+</body>
+</html>

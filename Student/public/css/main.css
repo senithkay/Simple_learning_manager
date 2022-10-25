@@ -1,0 +1,9 @@
+body {
+  background: linear-gradient(#655dca, #c3cee1) no-repeat !important;
+}
+.card-img {
+  background: url('/images/mosque.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+}

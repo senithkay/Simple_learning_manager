@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./signup.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="logo">
+            <img src="to_do_logo.png" alt="logo">
+        </div>
+        <h5 class="welcome-text">Welcome! Let's get started!</h4>
+
+
+
+            <% if(data!=""){%>
+                <div class="failmsg">
+                    <%= data%>
+                </div>
+            <% } %>
+
+
+        <form action="/register" method="post">
+
+            <input class="txt" type="text" name="username" placeholder="Username" required>
+            <input class="txt" type="email" name="email" placeholder="E-mail" required>
+            <input class="txt" type="password" name="password" placeholder="New password" required>
+            <div class="type">
+                
+                <input id="teacher" type="radio" name="userType" value="Teacher" required>
+                <label for="teacher">I am a Teacher</label>
+                <input id="student" type="radio" name="userType" value="Student" required>
+                <label for="student">I am a Student</label>
+            </div>
+            <button type="submit"> Sign up </button>
+        </form>
+        <h5 class="new-user-text">Already User? <a href="http://localhost:8080/login">  Log in</a></h5>
+    </div>
+    
+</body>
+</html>

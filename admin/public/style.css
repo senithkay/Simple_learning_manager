@@ -1,0 +1,123 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#655dca, #c3cee1) no-repeat;
+}
+
+
+.login-wrapper {
+    background-color: #c3cee1;
+    width: 25%;
+    height: 65%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px;
+    box-shadow: 0px 4px 10px -5px;
+}
+
+.logo {
+    position: relative;
+    top: 30px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+
+    max-width: 200%;
+    max-height: 200%;
+}
+
+h5 {
+    font-weight:500;
+}
+
+.welcome-text {
+    position: relative;
+    top: -20px;
+}
+
+form {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: -30px;
+}
+
+form input {
+    width: 75%;
+    height: 20%;
+    border-radius: 10px;
+    border-style: hidden;
+    box-shadow: 0px 2px 10px -5px;
+    padding: 20px;
+}
+form input:focus {
+    outline: 0;
+    width: 80%;
+    transition: width 0.3s ease-in-out;
+}
+
+form input:hover {
+    outline: 0;
+    width: 80%;
+    transition: width 0.3s ease-in-out;
+}
+
+
+#in2 {
+    position: relative;
+    bottom: 15px;
+}
+
+form button {
+    width: 75%;
+    height: 20%;
+    background-color: #655dca;
+    border-radius: 10px;
+    border-style: hidden;
+    color: white;
+    font-weight: bolder;
+    font-size:medium;
+    box-shadow: 2px 4px 10px -5px black;
+    transition: all 0.3s ease-in-out;
+}
+
+form button:hover {
+    width: 80%;
+    background-color: #2f3074;
+}
+
+.new-user-text{
+    position: relative;
+    bottom: 50px;
+}
+
+.new-user-text a {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+.new-user-text a:hover{
+    color: #2f3074;
+}

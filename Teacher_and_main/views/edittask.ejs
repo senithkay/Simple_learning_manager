@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher's Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Header-->
+    <header id="header">
+       <nav>
+        <div class="container">
+            <div class="text-center">
+                <a href="/"class="nav-brand text-dark">Tutor Management Dashboard</a>
+                <a href="/logout"class="nav-brand" style="color: white; position:relative; right: -500px; font-size: 20px"> | Logout</a>
+            </div>
+        </div>
+       </nav> 
+    </header>
+    <!--/Header-->
+
+    <!--Main Site-->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <div class="filter">
+                    <a href="/teacher"><i class="fas fa-angle-double-left"></i>All Tasks</a>
+                </div>
+            </div>
+            <div class="form-title text-center">
+             <h2 class="text-dark">Edit task</h2>   
+
+            </div>
+            <!--form handling-->
+            <form method="POST" id="update_user" action="/edittask/pros/1">
+                <div class="new_user">
+                    <div class="form-group">
+                        <label for="name" class="text-light">Change task name</label>
+                        <input type="text" name="taskName" value="" placeholder="New task name" >
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="text-light">Change description</label>
+                        <input type="text" name="description" value="" placeholder="New  description" >
+                    </div>
+                    <div class="form-group">
+                        <label for="Deadline" class="text-light">Change eadline</label>
+                        <input type="date" id="deadline" name="deadline" >
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn text-dark update">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <!--/Main Site-->
+
+</body>
+</html>
